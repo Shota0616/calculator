@@ -1,0 +1,7 @@
+{
+    "welcome": "Reactへようこそ",
+    "language": "言語",
+    "theme": "テーマ",
+    "edit_and_save": "<code>src/App.tsx</code> を編集して保存し、HMRをテストします",
+    "click_logos": "ViteとReactのロゴをクリックして詳細を確認してください"
+}
