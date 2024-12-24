@@ -10,17 +10,23 @@ export const lightTheme = createTheme({
         background: {
             default: '#ffffff',
         },
+        header: {
+            main: 'hsl(0, 0%, 90%);',
+        },
     },
 });
 
 export const darkTheme = createTheme({
     palette: {
         mode: 'dark',
-            primary: {
+        primary: {
             main: 'rgba(255, 255, 255, 0.87)',
         },
         background: {
             default: '#242424',
+        },
+        header: {
+            main: 'hsl(230, 9%, 25%);',
         },
     },
 });

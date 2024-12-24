@@ -11,6 +11,7 @@ const App = () => {
   const [currentValue, setCurrentValue] = useState('0');
   const [prevValue, setPrevValue] = useState(null);
   const [operation, setOperation] = useState(null);
+  const [expression, setExpression] = useState('');
 
   // 数字・小数点ボタンを押したとき
   const handleInput = (val) => {
@@ -26,6 +27,7 @@ const App = () => {
         return prev + val;
       }
     });
+    setExpression((prev) => prev + val);
   };
 
   // DELボタン(1文字削除)
@@ -34,6 +36,12 @@ const App = () => {
       if (prev.length <= 1) return '0';
       return prev.slice(0, -1);
     });
+    // 計算式(expression)も一文字削る
+    setExpression((prev) => {
+      if (prev.length === 0) return '';
+      return prev.slice(0, -1);
+    });
+    
   };
 
   // 演算子ボタン
@@ -41,6 +49,7 @@ const App = () => {
     setPrevValue(currentValue);
     setCurrentValue('0');
     setOperation(op);
+    setExpression((prev) => prev + ' ' + op + ' ');
   };
 
   // RESETボタン
@@ -48,6 +57,7 @@ const App = () => {
     setCurrentValue('0');
     setPrevValue(null);
     setOperation(null);
+    setExpression('');
   };
 
   // = ボタン（計算実行）
@@ -88,7 +98,10 @@ const App = () => {
     <div className={`calculator__wrapper ${theme.palette.mode === 'light' ? 'theme-1' : 'theme-2'}`}>
       <div className="calculator">
         {/* ---------- ディスプレイ部分 ---------- */}
-        <div className="calculator__display">{currentValue}</div>
+        <div className="calculator__display">
+          <div className="calculator__expression">{expression}</div>
+          <div className="calculator__current-value">{currentValue}</div>
+        </div>
 
         {/* ---------- キーパッド部分 ---------- */}
         <div className="calculator__keys">

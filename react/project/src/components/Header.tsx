@@ -53,7 +53,7 @@ const Header = () => {
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AppBar position="fixed" color="default">
+        <AppBar position="fixed" color="default" sx={{ backgroundColor: theme.palette.header.main }}>
             <Toolbar>
             <Typography variant="h6" noWrap>
                 calculator.com
